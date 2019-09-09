@@ -16,12 +16,12 @@ batch_size = 100
 learning_rate = 0.001
 
 # MNIST dataset 
-train_dataset = torchvision.datasets.MNIST(root='../../data', 
+train_dataset = torchvision.datasets.MNIST(root='/Users/sunpeiquan/OneDrive - Nanyang Technological University/datasets', 
                                            train=True, 
                                            transform=transforms.ToTensor(),  
                                            download=True)
 
-test_dataset = torchvision.datasets.MNIST(root='../../data', 
+test_dataset = torchvision.datasets.MNIST(root='/Users/sunpeiquan/OneDrive - Nanyang Technological University/datasets', 
                                           train=False, 
                                           transform=transforms.ToTensor())
 
@@ -81,7 +81,7 @@ with torch.no_grad():
     correct = 0
     total = 0
     for images, labels in test_loader:
-        images = images.reshape(-1, 28*28).to(device)
+        images = images.reshape(-1, 28 * 28).to(device)
         labels = labels.to(device)
         outputs = model(images)
         _, predicted = torch.max(outputs.data, 1)
