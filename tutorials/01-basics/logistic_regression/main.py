@@ -12,12 +12,12 @@ batch_size = 100
 learning_rate = 0.001
 
 # MNIST dataset (images and labels)
-train_dataset = torchvision.datasets.MNIST(root='../../data', 
+train_dataset = torchvision.datasets.MNIST(root='/home/sunpq/datasets', 
                                            train=True, 
                                            transform=transforms.ToTensor(),
                                            download=True)
 
-test_dataset = torchvision.datasets.MNIST(root='../../data', 
+test_dataset = torchvision.datasets.MNIST(root='/home/sunpq/datasets', 
                                           train=False, 
                                           transform=transforms.ToTensor())
 

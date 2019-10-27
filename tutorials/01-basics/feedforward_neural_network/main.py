@@ -16,13 +16,13 @@ batch_size = 100
 learning_rate = 0.001
 
 # MNIST dataset 
-train_dataset = torchvision.datasets.MNIST(root='/Users/sunpeiquan/OneDrive - Nanyang Technological University/datasets', 
-                                           train=True, 
-                                           transform=transforms.ToTensor(),  
+train_dataset = torchvision.datasets.MNIST(root='/home/sunpq/datasets',
+                                           train=True,
+                                           transform=transforms.ToTensor(),
                                            download=True)
 
-test_dataset = torchvision.datasets.MNIST(root='/Users/sunpeiquan/OneDrive - Nanyang Technological University/datasets', 
-                                          train=False, 
+test_dataset = torchvision.datasets.MNIST(root='/home/sunpq/datasets',
+                                          train=False,
                                           transform=transforms.ToTensor())
 
 # Data loader

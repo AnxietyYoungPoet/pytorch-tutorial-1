@@ -24,11 +24,11 @@ if not os.path.exists(sample_dir):
 # Image processing
 transform = transforms.Compose([
                 transforms.ToTensor(),
-                transforms.Normalize(mean=(0.5, 0.5, 0.5),   # 3 for RGB channels
-                                     std=(0.5, 0.5, 0.5))])
+                transforms.Normalize(mean=(0.5, ),   # 3 for RGB channels
+                                     std=(0.5, ))])
 
 # MNIST dataset
-mnist = torchvision.datasets.MNIST(root='../../data/',
+mnist = torchvision.datasets.MNIST(root='/home/sunpq/datasets',
                                    train=True,
                                    transform=transform,
                                    download=True)

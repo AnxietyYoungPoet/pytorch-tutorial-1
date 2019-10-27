@@ -1,4 +1,4 @@
-import torch 
+import torch
 import torchvision
 import torch.nn as nn
 import numpy as np
@@ -102,7 +102,7 @@ z = y.numpy()
 # ================================================================== #
 
 # Download and construct CIFAR-10 dataset.
-train_dataset = torchvision.datasets.CIFAR10(root='../../data/',
+train_dataset = torchvision.datasets.CIFAR10(root='/home/sunpq/datasets',
                                              train=True, 
                                              transform=transforms.ToTensor(),
                                              download=True)
@@ -129,30 +129,35 @@ for images, labels in train_loader:
     pass
 
 
+
 # ================================================================== #
 #                5. Input pipline for custom dataset                 #
 # ================================================================== #
 
 # You should build your custom dataset as below.
 class CustomDataset(torch.utils.data.Dataset):
-    def __init__(self):
+    def __init__(self, size, length):
         # TODO
         # 1. Initialize file paths or a list of file names. 
-        pass
+        self.len = length
+        self.size = size
+        self.data = torch.randn(length, size)
+
     def __getitem__(self, index):
         # TODO
         # 1. Read one data from file (e.g. using numpy.fromfile, PIL.Image.open).
         # 2. Preprocess the data (e.g. torchvision.Transform).
         # 3. Return a data pair (e.g. image and label).
-        pass
+        return self.data[index]
+
     def __len__(self):
         # You should change 0 to the total size of your dataset.
-        return 0 
+        return self.len
 
 # You can then use the prebuilt data loader. 
-custom_dataset = CustomDataset()
+custom_dataset = CustomDataset(5, 100)
 train_loader = torch.utils.data.DataLoader(dataset=custom_dataset,
-                                           batch_size=64, 
+                                           batch_size=64,
                                            shuffle=True)
 
 
@@ -181,8 +186,8 @@ print (outputs.size())     # (64, 100)
 # ================================================================== #
 
 # Save and load the entire model.
-torch.save(resnet, 'model.ckpt')
-model = torch.load('model.ckpt')
+# torch.save(resnet, 'model.ckpt')
+# model = torch.load('model.ckpt')
 
 # Save and load only the model parameters (recommended).
 torch.save(resnet.state_dict(), 'params.ckpt')
