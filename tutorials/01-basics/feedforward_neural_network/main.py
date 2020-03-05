@@ -15,13 +15,22 @@ num_epochs = 5
 batch_size = 100
 learning_rate = 0.001
 
+<<<<<<< HEAD
 # MNIST dataset
 train_dataset = torchvision.datasets.MNIST(root='/Users/sunpeiquan/OneDrive - Nanyang Technological University/datasets',
+=======
+# MNIST dataset 
+train_dataset = torchvision.datasets.MNIST(root='/home/sunpq/datasets',
+>>>>>>> b0b9947de111390f9f777917d5183ad52f4ab56d
                                            train=True,
                                            transform=transforms.ToTensor(),
                                            download=True)
 
+<<<<<<< HEAD
 test_dataset = torchvision.datasets.MNIST(root='/Users/sunpeiquan/OneDrive - Nanyang Technological University/datasets',
+=======
+test_dataset = torchvision.datasets.MNIST(root='/home/sunpq/datasets',
+>>>>>>> b0b9947de111390f9f777917d5183ad52f4ab56d
                                           train=False,
                                           transform=transforms.ToTensor())
 

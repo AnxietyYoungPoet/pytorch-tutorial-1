@@ -13,6 +13,7 @@ batch_size = 100
 learning_rate = 1e-4
 
 # MNIST dataset (images and labels)
+<<<<<<< HEAD
 train_dataset = torchvision.datasets.MNIST(root='/Users/sunpeiquan/data',
                                            train=True,
                                            transform=transforms.ToTensor(),
@@ -20,6 +21,15 @@ train_dataset = torchvision.datasets.MNIST(root='/Users/sunpeiquan/data',
 
 test_dataset = torchvision.datasets.MNIST(root='/Users/sunpeiquan/data',
                                           train=False,
+=======
+train_dataset = torchvision.datasets.MNIST(root='/home/sunpq/datasets', 
+                                           train=True, 
+                                           transform=transforms.ToTensor(),
+                                           download=True)
+
+test_dataset = torchvision.datasets.MNIST(root='/home/sunpq/datasets', 
+                                          train=False, 
+>>>>>>> b0b9947de111390f9f777917d5183ad52f4ab56d
                                           transform=transforms.ToTensor())
 
 # Data loader (input pipeline)
